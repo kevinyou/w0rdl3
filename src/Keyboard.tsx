@@ -1,4 +1,5 @@
 import { Clue, clueClass } from "./clue";
+import { leetToNormal } from "./leetutil";
 
 interface KeyboardProps {
   layout: string;
@@ -19,13 +20,13 @@ export function Keyboard(props: KeyboardProps) {
     <div className="Game-keyboard" aria-hidden="true">
       {keyboard.map((row, i) => (
         <div key={i} className="Game-keyboard-row">
-          {row.map((label, j) => {
+          {row.map((leetLabel, j) => {
             let className = "Game-keyboard-button";
-            const clue = props.letterInfo.get(label);
+            const clue = props.letterInfo.get(leetToNormal(leetLabel));
             if (clue !== undefined) {
               className += " " + clueClass(clue);
             }
-            if (label.length > 1) {
+            if (leetLabel.length > 1) {
               className += " Game-keyboard-button-wide";
             }
             return (
@@ -34,10 +35,10 @@ export function Keyboard(props: KeyboardProps) {
                 key={j}
                 className={className}
                 onClick={() => {
-                  props.onKey(label);
+                  props.onKey(leetLabel);
                 }}
               >
-                {label.replace("Backspace", "⌫").replace("Enter", "3n+3r")}
+                {leetLabel.replace("Backspace", "⌫").replace("Enter", "3n+3r")}
               </button>
             );
           })}
