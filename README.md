@@ -1,3 +1,8 @@
+## Deployment
+`npm run deploy` works because `homepage` is set correctly
+
+-- original readme below
+
 # hello
 
 A word game. Play it [**here**](https://hellowordl.net/).

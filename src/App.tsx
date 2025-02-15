@@ -12,7 +12,11 @@ function useSetting<T>(
   const [current, setCurrent] = useState<T>(() => {
     try {
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initial;
+      const settings = item ? JSON.parse(item) : initial;
+      // backwards compatibility with previous versions, in case leet language changed
+      // TODO: consider storing layout as normal string in state to avoid this
+      settings.keyboard = normalToLeet(settings.keyboard);
+      return settings;
     } catch (e) {
       return initial;
     }
