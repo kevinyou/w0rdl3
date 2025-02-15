@@ -13,6 +13,8 @@ export const normalToLeet = (str: string) => {
           return "1";
         case "o":
           return "0";
+        case "a":
+          return "@";
         case "s":
           return "$";
         case "c":
@@ -39,6 +41,8 @@ export const leetToNormal = (str: string) => {
           return "i";
         case "0":
           return "o";
+        case "@":
+          return "a";
         case "$":
           return "s";
         case "(":
