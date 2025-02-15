@@ -71,15 +71,8 @@ export function About() {
         annotation={"Got it!"}
       />
       <p>
-        Report issues{" "}
-        <a href="https://github.com/lynn/hello-wordl/issues">here</a>, or tweet{" "}
-        <a href="https://twitter.com/chordbug">@chordbug</a>.
-      </p>
-      <p>
-        This game will be free and ad-free forever,
-        <br />
-        but you can <a href="https://ko-fi.com/chordbug">buy me a coffee</a> if
-        you'd like.
+        w0rdl3 forked from{' '}
+        <a href="https://github.com/lynn/hello">lynn/hello</a>
       </p>
     </div>
   );
