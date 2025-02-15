@@ -1,4 +1,5 @@
 import { Clue, clueClass, CluedLetter, clueWord } from "./clue";
+import { normalToLeet } from "./leetutil";
 
 export enum RowState {
   LockedIn,
@@ -36,7 +37,7 @@ export function Row(props: RowProps) {
               : ""
           }
         >
-          {letter}
+          {normalToLeet(letter)}
         </td>
       );
     });

@@ -16,6 +16,7 @@ import {
   urlParam,
 } from "./util";
 import { decode, encode } from "./base64";
+import { leetToNormal } from "./leetutil";
 
 enum GameState {
   Playing,
@@ -156,7 +157,8 @@ function Game(props: GameProps) {
     setHint(url);
   }
 
-  const onKey = (key: string) => {
+  const onKey = (leetKey: string) => {
+    const key = leetToNormal(leetKey);
     if (gameState !== GameState.Playing) {
       if (key === "Enter") {
         startNextGame();

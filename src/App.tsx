@@ -3,6 +3,7 @@ import { maxGuesses, seed, urlParam } from "./util";
 import Game from "./Game";
 import { useEffect, useState } from "react";
 import { About } from "./About";
+import { leetToNormal, normalToLeet } from "./leetutil";
 
 function useSetting<T>(
   key: string,
@@ -43,7 +44,7 @@ function App() {
   const [difficulty, setDifficulty] = useSetting<number>("difficulty", 0);
   const [keyboard, setKeyboard] = useSetting<string>(
     "keyboard",
-    "qwertyuiop-asdfghjkl-BzxcvbnmE"
+    normalToLeet("qwertyuiop-asdfghjkl-BzxcvbnmE")
   );
   const [enterLeft, setEnterLeft] = useSetting<boolean>("enter-left", false);
 
@@ -160,8 +161,8 @@ function App() {
             <select
               name="keyboard-setting"
               id="keyboard-setting"
-              value={keyboard}
-              onChange={(e) => setKeyboard(e.target.value)}
+              value={leetToNormal(keyboard)}
+              onChange={(e) => setKeyboard(normalToLeet(e.target.value))}
             >
               <option value="qwertyuiop-asdfghjkl-BzxcvbnmE">QWERTY</option>
               <option value="azertyuiop-qsdfghjklm-BwxcvbnE">AZERTY</option>
