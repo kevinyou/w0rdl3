@@ -101,7 +101,7 @@ function Game(props: GameProps) {
   const [hint, setHint] = useState<string>(
     challengeError
       ? `Invalid challenge string, playing random game.`
-      : `Make your first guess!`
+      : `M4K3 J00r f1RS+ gu3SS!1ONE!1`
   );
   const currentSeedParams = () =>
     `?seed=${seed}&length=${wordLength}&game=${gameNumber}`;
@@ -263,7 +263,7 @@ function Game(props: GameProps) {
   return (
     <div className="Game" style={{ display: props.hidden ? "none" : "block" }}>
       <div className="Game-options">
-        <label htmlFor="wordLength">Letters:</label>
+        <label htmlFor="wordLength">1337ters:</label>
         <input
           type="range"
           min={minLength}
@@ -297,7 +297,7 @@ function Game(props: GameProps) {
             (document.activeElement as HTMLElement)?.blur();
           }}
         >
-          Give up
+          gg go next
         </button>
       </div>
       <table
@@ -327,7 +327,7 @@ function Game(props: GameProps) {
           ? "playing a challenge game"
           : seed
           ? `${describeSeed(seed)} — length ${wordLength}, game ${gameNumber}`
-          : "playing a random game"}
+          : "playing a randum game"}
       </div>
       <p>
         <button
